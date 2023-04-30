@@ -26,8 +26,8 @@ function App() {
   ];
   return (
     <>
+      <h2>Let's get started</h2>
       <div>
-        <p>Let's get started</p>
         <ExpenseItem
           title={expenses[0].title}
           amount={expenses[0].amount}
@@ -35,7 +35,6 @@ function App() {
         />
       </div>
       <div>
-        <p>Let's get started</p>
         <ExpenseItem
           title={expenses[1].title}
           amount={expenses[1].amount}
@@ -43,7 +42,6 @@ function App() {
         />
       </div>
       <div>
-        <p>Let's get started</p>
         <ExpenseItem
           title={expenses[2].title}
           amount={expenses[2].amount}
