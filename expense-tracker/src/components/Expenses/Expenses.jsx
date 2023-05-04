@@ -1,12 +1,27 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import ExpenseItem from './ExpenseItem';
 import './Expenses.css';
 import Card from '../UI/Card';
+import ExpenseFilter from './ExpenseFilter';
+import { useState } from 'react';
 
 const Expenses = props => {
+  const [filteredYear, setFilteredYear] = useState('2020');
+
+  const handleYear = year => {
+    setFilteredYear(year)
+
+  };
+
+  const filteredExpenses = props.items.filter(expense => {
+    return expense.date.getFullYear().toString() === filteredYear 
+  })
+
   return (
     <Card className="expenses">
-      {props.items.map(item => (
+      <ExpenseFilter selected={filteredYear} onSelectedYear={handleYear} />
+      {filteredExpenses.map(item => (
         <ExpenseItem
           key={item.id}
           title={item.title}
